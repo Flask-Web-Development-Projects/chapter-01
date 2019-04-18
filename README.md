@@ -5,3 +5,4 @@ While the first chapter includes downloading and installing Flask, as well as ge
 If you want to see this project built step by step, follow the branches of the repository:
 
 - `master` will include the finished product.
+- `checkpoint-00` is the initial commit, with just the most basic file structure
