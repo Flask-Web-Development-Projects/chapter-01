@@ -11,10 +11,12 @@ If you want to see this project built step by step, follow the branches of the r
 
 **Requirements:**
 
+- Git
 - Python 3.7+ and the corresponding version of Pip
   - If you have [Homebrew](https://brew.sh/), you can install the latest version of Python with `brew install python`. If you want to use the specific version of Python that I'm using, `brew install python 3.7.3`
   - If you want to download the official installer, go to [https://www.python.org](https://www.python.org)
-- Git
+- MongoDB
+  - If you have [Homebrew](https://brew.sh), you can install the latest version of MongoDB with `brew install mongodb`
 
 Clone this repository to your local development machine.
 Note that this was built on a 2017 Macbook Pro running OSX v. 10.13.6.
@@ -37,7 +39,7 @@ $ source ENV/bin/activate
 (ENV) $
 ```
 
-### Install the Flask framework
+### Install the Flask framework and other required packages
 
 When you installed Python 3.7, you should've gotten a corresponding version of `pip`, which is the Python package manager.
 Use `pip` to install the required packages for this project
@@ -45,3 +47,30 @@ Use `pip` to install the required packages for this project
 ```
 (ENV) $ pip install -r requirements.txt
 ```
+
+### Install and Run MongoDB
+
+If you don't already have MongoDB (version 4.0.9+), [download and install it here](https://docs.mongodb.com/manual/administration/install-community/).
+
+With Homebrew, you can install it with
+
+```
+(ENV) $ brew tap mongodb/brew
+(ENV) $ brew install mongodb-community@4.0
+```
+
+Start MongoDB as a background process
+
+```
+(ENV) $ brew services start mongodb/brew/mongodb-community
+```
+
+### Set an Environment Variable for Running Flask
+
+Append to your `ENV/bin/activate` script an environment variable that points to the flask app
+
+```
+(ENV) $ BASE_DIR=$(pwd)
+(ENV) $ echo "export FLASK_APP=$BASE_DIR/src/app.py flask run" >> ENV/bin/activate
+```
+
