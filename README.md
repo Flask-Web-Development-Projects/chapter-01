@@ -7,6 +7,7 @@ If you want to see this project built step by step, follow the branches of the r
 - `master` will include the finished product.
 - `checkpoint-00` is the initial commit, with just the most basic file structure
 - `checkpoint-01` is the first route of the Flask application
+- `checkpoint-02` adds the start of the corresponding React application
 
 ## Setup
 
@@ -18,6 +19,9 @@ If you want to see this project built step by step, follow the branches of the r
   - If you want to download the official installer, go to [https://www.python.org](https://www.python.org)
 - MongoDB
   - If you have [Homebrew](https://brew.sh), you can install the latest version of MongoDB with `brew install mongodb`
+- Node and Node Package Manager
+  - Have node 10.15.3+ (I use node 11.0)
+  - If you have Homebrew, install node and npm (if you don't already have them) with `brew install node`
 
 Clone this repository to your local development machine.
 Note that this was built on a 2017 Macbook Pro running OSX v. 10.13.6.
