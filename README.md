@@ -9,8 +9,22 @@ If you want to see this project built step by step, follow the branches of the r
 
 ## Setup
 
+**Requirements:**
+
+- Python 3.7+ and the corresponding version of Pip
+  - If you have [Homebrew](https://brew.sh/), you can install the latest version of Python with `brew install python`. If you want to use the specific version of Python that I'm using, `brew install python 3.7.3`
+  - If you want to download the official installer, go to [https://www.python.org](https://www.python.org)
+- Git
+
 Clone this repository to your local development machine. Note that this was built on a 2017 Macbook Pro running OSX v. 10.13.6. You will need to [have git on your local machine](https://git-scm.com/downloads) in order to clone this repository down.
 
 ```
 $ git clone https://github.com/Flask-Web-Development-Projects/chapter-01.git
 ```
+
+Start a Python 3 development environment. You can call yours whatever you want, but I always call mine `ENV`.
+
+```
+$ python3.7 -m venv ENV
+```
+
