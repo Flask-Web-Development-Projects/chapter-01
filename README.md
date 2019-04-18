@@ -77,3 +77,15 @@ Reactivate your environment to enable access to the new environment variable.
 (ENV) $ source ENV/bin/activate
 ```
 
+Run the application with `flask run`.
+You'll be able to view the resulting website on http://127.0.0.1:5000
+
+```
+(ENV) $ flask run
+ * Serving Flask app "server/app.py"
+ * Environment: production
+   WARNING: Do not use the development server in a production environment.
+   Use a production WSGI server instead.
+ * Debug mode: off
+ * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+```
