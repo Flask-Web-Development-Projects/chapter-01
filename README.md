@@ -6,6 +6,7 @@ If you want to see this project built step by step, follow the branches of the r
 
 - `master` will include the finished product.
 - `checkpoint-00` is the initial commit, with just the most basic file structure
+- `checkpoint-01` is the first route of the Flask application
 
 ## Setup
 
@@ -67,10 +68,12 @@ Start MongoDB as a background process
 
 ### Set an Environment Variable for Running Flask
 
-Append to your `ENV/bin/activate` script an environment variable that points to the flask app
+Append to your `ENV/bin/activate` script an environment variable that points to the flask app.
+Reactivate your environment to enable access to the new environment variable.
 
 ```
 (ENV) $ BASE_DIR=$(pwd)
-(ENV) $ echo "export FLASK_APP=$BASE_DIR/src/app.py flask run" >> ENV/bin/activate
+(ENV) $ echo "export FLASK_APP=$BASE_DIR/server/app.py flask run" >> ENV/bin/activate
+(ENV) $ source ENV/bin/activate
 ```
 
