@@ -1,10 +1,11 @@
 # -*- coding: utf-8 -*-
 import os
+import datetime
+from bson.objectid import ObjectId
 from flask import request
 from flask_api import FlaskAPI
 from flask_cors import CORS
 from flask_pymongo import PyMongo
-import datetime
 
 app = FlaskAPI(__name__)
 app.config['MONGO_URI'] = os.environ.get(
@@ -73,4 +74,5 @@ def remove_task(task_id: str) -> str:
     str
         The ID of the deleted task, as a string.
     """
-    pass
+    mongo.db.tasks.delete_one({'_id': ObjectId(task_id)})
+    return task_id
