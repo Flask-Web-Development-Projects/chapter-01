@@ -2,20 +2,10 @@
 
 While the first chapter includes downloading and installing Flask, as well as getting familiar with some Python web frameworks, this repository will include only the code used in building the To Do list, both back and front end.
 
-If you want to see this project built step by step, follow the branches of the repository:
+## Index:
 
-- `master` will include the finished product.
-- `checkpoint-00` is the initial commit, with just the most basic file structure
-- `checkpoint-01` is the first route of the Flask application
-- `checkpoint-02` adds the start of the corresponding React application and modifies the first route of the Flask application to serve data to what will be the front end
-- `checkpoint-03` does a few things:
-  - modifies the React application to convert it to Typescript
-  - strips out everything that isn't needed from the default output of `create-react-app`
-  - creates some file structure to tuck away React components in a separate directory
-  - converts the App component from a class component to a hooks component
-  - adds a first view for displaying a list of tasks
-  - updates the Flask app to use [Flask-CORS](https://flask-cors.readthedocs.io/en/latest/)
-- `checkpoint-04` connects the Flask API to an existing MongoDB database instance.
+- [Setup](#Setup)
+- [The Walkthrough](#Overview-of-the-Walkthrough)
 
 ## Setup
 
@@ -116,3 +106,21 @@ Once installed, run the front end
 ```
 (ENV) $ npm start
 ```
+
+## Overview of the Walkthrough
+
+If you want to see this project built step by step, follow the branches of the repository:
+
+- `master` will include the finished product.
+- `checkpoint-00` is the initial commit, with just the most basic file structure
+- `checkpoint-01` is the first route of the Flask application
+- `checkpoint-02` adds the start of the corresponding React application and modifies the first route of the Flask application to serve data to what will be the front end
+- `checkpoint-03` does a few things:
+  - modifies the React application to convert it to Typescript
+  - strips out everything that isn't needed from the default output of `create-react-app`
+  - creates some file structure to tuck away React components in a separate directory
+  - converts the App component from a class component to a hooks component
+  - adds a first view for displaying a list of tasks
+  - updates the Flask app to use [Flask-CORS](https://flask-cors.readthedocs.io/en/latest/)
+- `checkpoint-04` connects the Flask API to an existing MongoDB database instance.
+- `checkpoint-05` creates an API endpoint for creating new To Do items
