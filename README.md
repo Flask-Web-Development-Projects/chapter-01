@@ -8,6 +8,7 @@ If you want to see this project built step by step, follow the branches of the r
 - `checkpoint-00` is the initial commit, with just the most basic file structure
 - `checkpoint-01` is the first route of the Flask application
 - `checkpoint-02` adds the start of the corresponding React application and modifies the first route of the Flask application to serve data to what will be the front end
+- `checpoint-03` modifies the React application to convert it to Typescript, strip out everything that isn't needed, create some file structure to tuck away components, converts the App component from a class component to a hooks component, and adds a first view for displaying a list of tasks
 
 ## Setup
 
@@ -92,4 +93,19 @@ You'll be able to view the resulting website on http://127.0.0.1:5000
    Use a production WSGI server instead.
  * Debug mode: off
  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+```
+
+### Install the software for the client directory and run the client
+
+Navigate to the `client` directory and install all the dependencies
+
+```
+(ENV) $ cd client
+(ENV) $ npm install
+```
+
+Once installed, run the front end
+
+```
+(ENV) $ npm start
 ```
