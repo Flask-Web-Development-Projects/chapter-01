@@ -26,6 +26,8 @@ def get_tasks() -> list:
         A list of incomplete tasks, ordered by creation date.
     """
     tasks = mongo.db.tasks.find({'complete': False})
+    for task in tasks:
+        task["_id"] = str(task["_id"])
     return tasks
 
 @app.route(f'{prefix}/tasks', methods=["POST"])
