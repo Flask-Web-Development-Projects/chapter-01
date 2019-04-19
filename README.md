@@ -7,7 +7,7 @@ If you want to see this project built step by step, follow the branches of the r
 - `master` will include the finished product.
 - `checkpoint-00` is the initial commit, with just the most basic file structure
 - `checkpoint-01` is the first route of the Flask application
-- `checkpoint-02` adds the start of the corresponding React application
+- `checkpoint-02` adds the start of the corresponding React application and modifies the first route of the Flask application to serve data to what will be the front end
 
 ## Setup
 
