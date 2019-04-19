@@ -3,19 +3,29 @@ import { Task } from '../types';
 import { CreateTask } from '../CreateTask';
 import axios from 'axios';
 import './index.css';
+import { TaskList } from '../TaskList';
+
+const API_BASE_URL = 'http://localhost:5000/api/v1'
 
 const App = () => {
   const [tasks, setTasks] = useState<Array<Task>>([]);
   
   async function fetchTasks() {
-    const apiUrl: string = 'http://localhost:5000/api/v1/tasks';
-    const result = await axios(apiUrl);
+    const url: string = `${API_BASE_URL}/tasks`;
+    const result = await axios(url);
 
     setTasks(result.data);
   };
 
   async function submitTask(body: string) {
+    const url: string = `${API_BASE_URL}/tasks`;
+    const result = await axios
+      .post(url, {
+        body,
+        complete: false
+      });
 
+    setTasks(tasks.concat(result.data));
   }
 
   useEffect(() => {
@@ -23,12 +33,8 @@ const App = () => {
   }, []);
 
   return <div>
-    <CreateTask 
-      submitTask={submitTask}
-    />
-    <div>
-      { tasks.map( task => <div key={ task._id }>{ task.body }</div>) }
-    </div>
+    <CreateTask submitTask={submitTask} />
+    <TaskList tasks={tasks} />
   </div>
   
 };
