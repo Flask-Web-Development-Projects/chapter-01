@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Task } from '../types';
+import { CreateTask } from '../CreateTask';
 import axios from 'axios';
 import './index.css';
 
@@ -18,8 +19,12 @@ const App = () => {
   }, []);
 
   return <div>
-    { tasks.map( task => <div key={ task._id }>{ task.body }</div>) }
+    <CreateTask />
+    <div>
+      { tasks.map( task => <div key={ task._id }>{ task.body }</div>) }
+    </div>
   </div>
+  
 };
 
 export default App;
