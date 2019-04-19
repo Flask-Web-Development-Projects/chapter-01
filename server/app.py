@@ -56,7 +56,7 @@ def new_task() -> dict:
     new_task["_id"] = str(new_task["_id"])
     return new_task
 
-@app.route(f'{prefix}/tasks/<int:task_id>', methods=["DELETE"])
+@app.route(f'{prefix}/tasks/<task_id>', methods=["DELETE"])
 def remove_task(task_id: str) -> str:
     """The Task Deletion route.
 
@@ -74,5 +74,6 @@ def remove_task(task_id: str) -> str:
     str
         The ID of the deleted task, as a string.
     """
+    print('hit')
     mongo.db.tasks.delete_one({'_id': ObjectId(task_id)})
     return task_id
