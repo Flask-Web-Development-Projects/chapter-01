@@ -2,9 +2,14 @@
 import os
 from flask_api import FlaskAPI
 from flask_cors import CORS
+from flask_pymongo import PyMongo
 
 app = FlaskAPI(__name__)
-CORS(app)
+app.config['MONGO_URI'] = os.environ.get(
+    'MONGO_URI',
+    'mongodb://localhost:27017/tasksdb'
+)
+mongo = PyMongo(CORS(app))
 prefix = '/api/v1'
 
 @app.route(f'{prefix}/tasks')

@@ -15,6 +15,7 @@ If you want to see this project built step by step, follow the branches of the r
   - converts the App component from a class component to a hooks component
   - adds a first view for displaying a list of tasks
   - updates the Flask app to use [Flask-CORS](https://flask-cors.readthedocs.io/en/latest/)
+- `checkpoint-04` connects the Flask API to an existing MongoDB database instance.
 
 ## Setup
 
