@@ -123,4 +123,4 @@ If you want to see this project built step by step, follow the branches of the r
   - adds a first view for displaying a list of tasks
   - updates the Flask app to use [Flask-CORS](https://flask-cors.readthedocs.io/en/latest/)
 - `checkpoint-04` connects the Flask API to an existing MongoDB database instance.
-- `checkpoint-05` creates an API endpoint for creating new To Do items
+- [checkpoint-05](tree/checkpoint-05) creates an API endpoint for creating new To Do items
