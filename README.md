@@ -8,7 +8,13 @@ If you want to see this project built step by step, follow the branches of the r
 - `checkpoint-00` is the initial commit, with just the most basic file structure
 - `checkpoint-01` is the first route of the Flask application
 - `checkpoint-02` adds the start of the corresponding React application and modifies the first route of the Flask application to serve data to what will be the front end
-- `checpoint-03` modifies the React application to convert it to Typescript, strip out everything that isn't needed, create some file structure to tuck away components, converts the App component from a class component to a hooks component, and adds a first view for displaying a list of tasks
+- `checkpoint-03` does a few things:
+  - modifies the React application to convert it to Typescript
+  - strips out everything that isn't needed from the default output of `create-react-app`
+  - creates some file structure to tuck away React components in a separate directory
+  - converts the App component from a class component to a hooks component
+  - adds a first view for displaying a list of tasks
+  - updates the Flask app to use [Flask-CORS](https://flask-cors.readthedocs.io/en/latest/)
 
 ## Setup
 

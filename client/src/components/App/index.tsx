@@ -1,28 +1,25 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from 'react';
+import { Task } from '../types';
+import axios from 'axios';
+import './index.css';
 
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
-    );
-  }
-}
+const App = () => {
+  const [tasks, setTasks] = useState<Array<Task>>([]);
+  
+  async function fetchTasks() {
+    const apiUrl: string = 'http://localhost:5000/api/v1/tasks';
+    const result = await axios(apiUrl);
+
+    setTasks(result.data);
+  };
+
+  useEffect(() => {
+    fetchTasks();
+  }, []);
+
+  return <div>
+    { tasks.map( task => <div key={ task.id }>{ task.body }</div>) }
+  </div>
+};
 
 export default App;
