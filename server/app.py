@@ -44,7 +44,8 @@ def new_task() -> dict:
 
     Returns
     -------
-    None
+    dict
+        The data of the task, as it has been inserted into the database
     """
     new_task = request.data
     now = datetime.datetime.utcnow()
@@ -53,3 +54,23 @@ def new_task() -> dict:
     mongo.db.tasks.insert(new_task)
     new_task["_id"] = str(new_task["_id"])
     return new_task
+
+@app.route(f'{prefix}/tasks/<int:task_id>', methods=["DELETE"])
+def remove_task(task_id: str) -> str:
+    """The Task Deletion route.
+
+    This endpoint takes in the id of the task to be deleted, finds it in the
+    database, and removes it. On a successful deletion, it returns the
+    id of the deleted task to the client.
+
+    Parameters
+    ----------
+    task_id : str
+        The ID of the task to be deleted, as a string.
+
+    Returns
+    ----
+    str
+        The ID of the deleted task, as a string.
+    """
+    pass
