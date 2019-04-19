@@ -14,12 +14,18 @@ const App = () => {
     setTasks(result.data);
   };
 
+  async function submitTask(body: string) {
+
+  }
+
   useEffect(() => {
     fetchTasks();
   }, []);
 
   return <div>
-    <CreateTask />
+    <CreateTask 
+      submitTask={submitTask}
+    />
     <div>
       { tasks.map( task => <div key={ task._id }>{ task.body }</div>) }
     </div>
