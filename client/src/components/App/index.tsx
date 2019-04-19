@@ -18,7 +18,7 @@ const App = () => {
   }, []);
 
   return <div>
-    { tasks.map( task => <div key={ task.id }>{ task.body }</div>) }
+    { tasks.map( task => <div key={ task._id }>{ task.body }</div>) }
   </div>
 };
 
