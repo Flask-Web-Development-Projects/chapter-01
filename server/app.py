@@ -96,4 +96,13 @@ def update_task(task_id: str) -> dict:
     dict
         The updated data of the task.
     """
-    pass
+    update_data = request.data
+    update_data.pop("_id")
+    result = mongo.db.tasks.update_one(
+        {"_id": ObjectId(task_id)},
+        {"$set": update_data}
+    )
+    
+    updated_task = mongo.db.tasks.find_one({'_id': ObjectId(task_id)})
+    updated_task["_id"] = str(updated_task["_id"])
+    return updated_task
