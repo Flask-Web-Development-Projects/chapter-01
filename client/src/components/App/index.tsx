@@ -42,7 +42,7 @@ const App = () => {
 
   return <div>
     <CreateTask submitTask={submitTask} />
-    <TaskList tasks={tasks} />
+    <TaskList {...{ tasks, deleteTask }} />
   </div>
   
 };

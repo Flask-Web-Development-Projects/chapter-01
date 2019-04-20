@@ -4,16 +4,20 @@ import {Task} from '../types';
 
 interface TaskProps {
     task: Task;
+    deleteTask: (taskId: string) => {};
 };
 
-interface Props {
+interface ListProps {
     tasks: Task[];
+    deleteTask: (taskId: string) => {};
 };
 
-const Task = ({ task }: TaskProps) => {
+const TaskItem = ({ task, deleteTask }: TaskProps) => {
     return <div key={task._id}>
         <div className="task-buttons">
-            <button>Delete</button>
+            <button onClick={() => deleteTask(task._id)}>
+                Delete
+            </button>
         </div>
         <div className="task-body">
             {task.body}
@@ -21,8 +25,8 @@ const Task = ({ task }: TaskProps) => {
     </div>;
 };
 
-export const TaskList = ({ tasks }: Props) => {
+export const TaskList = ({ tasks, deleteTask }: ListProps) => {
     return <div>
-        {tasks.map(task => <Task task={task} />)}
+        {tasks.map(task => <TaskItem {...{task, deleteTask}} />)}
     </div>;
 };
