@@ -70,9 +70,30 @@ def remove_task(task_id: str) -> str:
         The ID of the task to be deleted, as a string.
 
     Returns
-    ----
+    -------
     str
         The ID of the deleted task, as a string.
     """
     mongo.db.tasks.delete_one({'_id': ObjectId(task_id)})
     return task_id
+
+@app.route(f'{prefix}/tasks/<string:task_id>', methods=["PUT"])
+def update_task(task_id: str) -> dict:
+    """The Task Update route.
+
+    This endpoint takes in the id of the task to be updated in the URL, as
+    well as the new state of the task item in the request body. On a
+    successful update, it returns the new state of the updated task to the
+    client.
+
+    Parameters
+    ----------
+    task_id : str
+        The ID of the task to be updated, as a string.
+
+    Returns
+    -------
+    dict
+        The updated data of the task.
+    """
+    pass
