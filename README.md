@@ -129,3 +129,4 @@ If you want to see this project built step by step, follow the branches of the r
   - updates the main app to include that component
   - breaks the task list out into a separate component
 - [checkpoint-07](https://github.com/Flask-Web-Development-Projects/chapter-01/tree/checkpoint-07) adds a new API endpoint for deleting tasks
+- [checkpoint-08](https://github.com/Flask-Web-Development-Projects/chapter-01/tree/checkpoint-08) updates the front end to allow deletion of tasks, and breaks out individual task items into a component
