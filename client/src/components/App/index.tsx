@@ -26,7 +26,15 @@ const App = () => {
       });
 
     setTasks(tasks.concat(result.data));
-  }
+  };
+
+  async function deleteTask(taskId: string) {
+    const url: string = `${API_BASE_URL}/tasks/${taskId}`;
+    const result = await axios
+      .delete(url);
+    
+    setTasks(tasks.filter(task => task._id !== taskId));
+  };
 
   useEffect(() => {
     fetchTasks();
