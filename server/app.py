@@ -6,6 +6,7 @@ from flask import request
 from flask_api import FlaskAPI
 from flask_cors import CORS
 from flask_pymongo import PyMongo
+from pymongo import ReturnDocument
 
 app = FlaskAPI(__name__)
 app.config['MONGO_URI'] = os.environ.get(
@@ -98,11 +99,10 @@ def update_task(task_id: str) -> dict:
     """
     update_data = request.data
     update_data.pop("_id")
-    result = mongo.db.tasks.update_one(
+    updated_task = mongo.db.tasks.find_one_and_update(
         {"_id": ObjectId(task_id)},
-        {"$set": update_data}
+        {"$set": update_data},
+        return_document=ReturnDocument.AFTER
     )
-    
-    updated_task = mongo.db.tasks.find_one({'_id': ObjectId(task_id)})
     updated_task["_id"] = str(updated_task["_id"])
     return updated_task
