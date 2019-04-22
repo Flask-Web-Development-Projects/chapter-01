@@ -18,6 +18,9 @@ const TaskItem = ({ task, deleteTask }: TaskProps) => {
             <button onClick={() => deleteTask(task._id)}>
                 Delete
             </button>
+            <button>
+                Complete
+            </button>
         </div>
         <div className="task-body">
             {task.body}
