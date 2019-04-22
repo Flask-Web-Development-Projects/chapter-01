@@ -42,10 +42,15 @@ const TaskButtons = ({ task, deleteTask, completeTask, toBeEdited, isEditing }: 
 };
 
 const TaskBody = ({ task, toBeEdited, isEditing }: BodyProps) => {
+    const [bodyText, setBodyText] = useState(task.body);
+
     return task._id === isEditing ? 
-        <textarea /> :
+        <textarea
+            value={bodyText}
+            onChange={event => setBodyText(event.target.value)}
+        /> :
         <div className="task-body">
-            {task.body}
+            {bodyText}
         </div>;
 };
 
