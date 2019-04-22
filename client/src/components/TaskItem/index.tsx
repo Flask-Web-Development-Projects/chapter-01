@@ -16,6 +16,10 @@ interface ButtonProps {
     completeTask: (task: Task) => void;
 }
 
+interface BodyProps {
+    task: Task;
+}
+
 const TaskButtons = ({ task, deleteTask, completeTask, toBeEdited }: ButtonProps) => {
     return <div className="task-buttons">
         <button onClick={() => deleteTask(task._id)}>
@@ -30,13 +34,17 @@ const TaskButtons = ({ task, deleteTask, completeTask, toBeEdited }: ButtonProps
     </div>;
 };
 
+const TaskBody = ({ task }: BodyProps) => {
+    return <div className="task-body">
+        {task.body}
+    </div>;
+};
+
 export const TaskItem = ({ task, deleteTask, completeTask, toBeEdited, isEditing }: TaskProps) => {
     return <div key={task._id}>
-       <TaskButtons
+        <TaskButtons
             {...{ task, deleteTask, completeTask, toBeEdited }}
-       />
-        <div className="task-body">
-            {task.body}
-        </div>
+        />
+        <TaskBody {...{ task }} />
     </div>;
 };
