@@ -36,6 +36,15 @@ const App = () => {
     setTasks(tasks.filter(task => task._id !== taskId));
   };
 
+  async function completeTask(task: Task) {
+    const url: string = `${API_BASE_URL}/tasks/${task._id}`;
+    const updatedTask = Object.assign({}, task, {complete: true});
+    const result = await axios
+      .put(url, updatedTask);
+    
+    setTasks(tasks.filter(task => task._id !== updatedTask._id));
+  }
+
   useEffect(() => {
     fetchTasks();
   }, []);
