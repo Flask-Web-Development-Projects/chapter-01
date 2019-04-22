@@ -51,7 +51,7 @@ const App = () => {
 
   return <div>
     <CreateTask submitTask={submitTask} />
-    <TaskList {...{ tasks, deleteTask }} />
+    <TaskList {...{ tasks, deleteTask, completeTask }} />
   </div>
   
 };
