@@ -19,6 +19,8 @@ interface ButtonProps {
 
 interface BodyProps {
     task: Task;
+    toBeEdited: (taskId: string) => void;
+    isEditing: string;
 }
 
 const TaskButtons = ({ task, deleteTask, completeTask, toBeEdited, isEditing }: ButtonProps) => {
@@ -39,10 +41,12 @@ const TaskButtons = ({ task, deleteTask, completeTask, toBeEdited, isEditing }: 
     </div>;
 };
 
-const TaskBody = ({ task }: BodyProps) => {
-    return <div className="task-body">
-        {task.body}
-    </div>;
+const TaskBody = ({ task, toBeEdited, isEditing }: BodyProps) => {
+    return task._id === isEditing ? 
+        <textarea /> :
+        <div className="task-body">
+            {task.body}
+        </div>;
 };
 
 export const TaskItem = ({ task, deleteTask, completeTask, toBeEdited, isEditing }: TaskProps) => {
@@ -50,6 +54,6 @@ export const TaskItem = ({ task, deleteTask, completeTask, toBeEdited, isEditing
         <TaskButtons
             {...{ task, deleteTask, completeTask, toBeEdited, isEditing }}
         />
-        <TaskBody {...{ task }} />
+        <TaskBody {...{ task, toBeEdited, isEditing }} />
     </div>;
 };
