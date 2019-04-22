@@ -131,3 +131,4 @@ If you want to see this project built step by step, follow the branches of the r
 - [checkpoint-07](https://github.com/Flask-Web-Development-Projects/chapter-01/tree/checkpoint-07) adds a new API endpoint for deleting tasks
 - [checkpoint-08](https://github.com/Flask-Web-Development-Projects/chapter-01/tree/checkpoint-08) updates the front end to allow deletion of tasks, and breaks out individual task items into a component
 - [checkpoint-09](https://github.com/Flask-Web-Development-Projects/chapter-01/tree/checkpoint-09) adds a new API endpoint for updating tasks
+- [checkpoint-10](https://github.com/Flask-Web-Development-Projects/chapter-01/tree/checkpoint-10) updates the Task component to allow for the completion of a task, using the "update" endpoint
