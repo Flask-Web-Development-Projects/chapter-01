@@ -45,13 +45,25 @@ const App = () => {
     setTasks(tasks.filter(task => task._id !== updatedTask._id));
   }
 
+  async function updateTask(task: Task, newBody: string) {
+    const url: string = `${API_BASE_URL}/tasks/${task._id}`;
+    const updatedTask = Object.assign({}, task, {body: newBody});
+    await axios.put(url, updatedTask);
+
+    setTasks(
+      tasks
+        .filter(task => task._id !== updatedTask._id)
+        .concat(updatedTask)
+    )
+  }
+
   useEffect(() => {
     fetchTasks();
   }, []);
 
   return <div>
     <CreateTask submitTask={submitTask} />
-    <TaskList {...{ tasks, deleteTask, completeTask }} />
+    <TaskList {...{ tasks, deleteTask, completeTask, updateTask }} />
   </div>
   
 };

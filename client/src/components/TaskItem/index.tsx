@@ -6,6 +6,7 @@ interface TaskProps {
     deleteTask: (taskId: string) => void;
     toBeEdited: (taskId: string) => void;
     completeTask: (task: Task) => void;
+    updateTask: (task: Task, newBody: string) => void;
     isEditing: string;
 };
 
@@ -56,10 +57,11 @@ const TaskBody = ({ taskId, isEditing, taskBody, updateBody }: BodyProps) => {
         </div>;
 };
 
-export const TaskItem = ({ task, deleteTask, completeTask, toBeEdited, isEditing }: TaskProps) => {
+export const TaskItem = ({ task, deleteTask, completeTask, toBeEdited, isEditing, updateTask }: TaskProps) => {
     const [bodyText, setBodyText] = useState(task.body);
     const saveBody = () => {
         setBodyText(bodyText);
+        updateTask(task, bodyText);
         toBeEdited('');
     }
     const updateBody = (newText: string) => {
