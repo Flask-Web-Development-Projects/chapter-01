@@ -14,16 +14,18 @@ interface ButtonProps {
     deleteTask: (taskId: string) => void;
     toBeEdited: (taskId: string) => void;
     completeTask: (task: Task) => void;
+    saveBody: () => void;
     isEditing: string;
 }
 
 interface BodyProps {
-    task: Task;
-    toBeEdited: (taskId: string) => void;
+    taskId: string;
     isEditing: string;
+    taskBody: string;
+    updateBody: (newText: string) => void;
 }
 
-const TaskButtons = ({ task, deleteTask, completeTask, toBeEdited, isEditing }: ButtonProps) => {
+const TaskButtons = ({ task, deleteTask, completeTask, toBeEdited, isEditing, saveBody }: ButtonProps) => {
     return <div className="task-buttons">
         <button onClick={() => deleteTask(task._id)}>
             Delete
@@ -33,7 +35,9 @@ const TaskButtons = ({ task, deleteTask, completeTask, toBeEdited, isEditing }: 
         </button>
         {
             task._id === isEditing ? 
-            <button onClick={() => toBeEdited('')}> Save </button> :
+            <button onClick={() => {
+                saveBody();
+            }}> Save </button> :
             <button onClick={() => toBeEdited(task._id)}>
                 Edit
             </button> 
@@ -41,24 +45,45 @@ const TaskButtons = ({ task, deleteTask, completeTask, toBeEdited, isEditing }: 
     </div>;
 };
 
-const TaskBody = ({ task, toBeEdited, isEditing }: BodyProps) => {
-    const [bodyText, setBodyText] = useState(task.body);
-
-    return task._id === isEditing ? 
+const TaskBody = ({ taskId, isEditing, taskBody, updateBody }: BodyProps) => {
+    return taskId === isEditing ? 
         <textarea
-            value={bodyText}
-            onChange={event => setBodyText(event.target.value)}
+            value={taskBody}
+            onChange={event => updateBody(event.target.value)}
         /> :
         <div className="task-body">
-            {bodyText}
+            {taskBody}
         </div>;
 };
 
 export const TaskItem = ({ task, deleteTask, completeTask, toBeEdited, isEditing }: TaskProps) => {
+    const [bodyText, setBodyText] = useState(task.body);
+    const saveBody = () => {
+        setBodyText(bodyText);
+        toBeEdited('');
+    }
+    const updateBody = (newText: string) => {
+        setBodyText(newText);
+    }
+
     return <div key={task._id}>
         <TaskButtons
-            {...{ task, deleteTask, completeTask, toBeEdited, isEditing }}
+            {...{
+                task,
+                deleteTask,
+                completeTask,
+                toBeEdited,
+                isEditing,
+                saveBody
+            }}
         />
-        <TaskBody {...{ task, toBeEdited, isEditing }} />
+        <TaskBody 
+            {...{
+                taskId: task._id,
+                isEditing,
+                taskBody: bodyText,
+                updateBody
+            }}
+        />
     </div>;
 };
