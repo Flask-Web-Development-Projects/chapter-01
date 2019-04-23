@@ -73,7 +73,7 @@ export const TaskItem = ({ task, deleteTask, completeTask, toBeEdited, isEditing
         setBodyText(newText);
     }
 
-    return <div key={task._id}>
+    return <div>
         <TaskButtons
             {...{
                 task,

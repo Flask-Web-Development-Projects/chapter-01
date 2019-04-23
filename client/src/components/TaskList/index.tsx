@@ -19,7 +19,8 @@ export const TaskList = ({ tasks, deleteTask, completeTask, updateTask }: ListPr
     return <div>
         {tasks
             .map(task => 
-                <TaskItem 
+                <TaskItem
+                    key={task._id}
                     {...{task, ...taskProps}}
                 />
             )
