@@ -1,4 +1,5 @@
 import React, { FormEvent, useState } from 'react';
+import Button from 'react-bootstrap/Button';
 
 interface Props {
     submitTask: (body: string) => {};
@@ -20,6 +21,6 @@ export const CreateTask = ({ submitTask }: Props) => {
             placeholder="What do you want to do?"
             required
         />
-        <button type="submit">Add Task</button>
+        <Button variant="primary">Add Task</Button>
     </form>;
 }
