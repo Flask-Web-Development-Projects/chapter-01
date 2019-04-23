@@ -33,15 +33,15 @@ const TaskButtons = ({ task, deleteTask, completeTask, toBeEdited, isEditing, sa
             <FontAwesomeIcon icon="times" />
         </button>
         <button onClick={() => completeTask(task)}>
-            Complete
+            <FontAwesomeIcon icon="check" />
         </button>
         {
         task._id === isEditing ? 
         <button onClick={() => {
             saveBody();
-        }}> Save </button> :
+        }}> <FontAwesomeIcon icon="save" /> </button> :
         <button onClick={() => toBeEdited(task._id)}>
-            Edit
+            <FontAwesomeIcon icon="pencil-alt" />
         </button> 
         }
     </div>;

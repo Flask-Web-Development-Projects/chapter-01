@@ -2,14 +2,16 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
 import { library } from '@fortawesome/fontawesome-svg-core';
-import { faTimes } from '@fortawesome/free-solid-svg-icons';
+import { 
+  faTimes, faCheck, faPencilAlt, faSave
+} from '@fortawesome/free-solid-svg-icons';
 import './index.css';
 
 import { Task } from '../types';
 import { CreateTask } from '../CreateTask';
 import { TaskList } from '../TaskList';
 
-library.add(faTimes);
+library.add(...[faTimes, faCheck, faPencilAlt, faSave]);
 
 const API_BASE_URL = 'http://localhost:5000/api/v1'
 
