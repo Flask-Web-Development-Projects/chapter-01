@@ -1,5 +1,6 @@
 import React, { FormEvent, useState } from 'react';
 import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
 
 interface Props {
     submitTask: (body: string) => {};
@@ -11,9 +12,10 @@ export const CreateTask = ({ submitTask }: Props) => {
     const submitted = (event: FormEvent<HTMLFormElement>) => {
         event.preventDefault();
         submitTask(taskBody);
+        setBody('');
     };
 
-    return <form onSubmit={ submitted }>
+    return <Form onSubmit={ submitted }>
         <textarea
             name="task-body"
             value={taskBody}
@@ -21,6 +23,6 @@ export const CreateTask = ({ submitTask }: Props) => {
             placeholder="What do you want to do?"
             required
         />
-        <Button variant="primary">Add Task</Button>
-    </form>;
+        <Button variant="primary" type="submit">Add Task</Button>
+    </Form>;
 }
