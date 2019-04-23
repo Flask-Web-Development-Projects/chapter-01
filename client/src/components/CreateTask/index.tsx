@@ -2,6 +2,7 @@ import React, { FormEvent, useState, ChangeEvent } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Col from 'react-bootstrap/Col';
+import './index.css';
 
 interface Props {
     submitTask: (body: string) => {};
@@ -29,8 +30,12 @@ export const CreateTask = ({ submitTask }: Props) => {
                     required
                 />
             </Form.Group>
-            <Form.Group as={ Col }>
-                <Button variant="primary" type="submit">Add Task</Button>
+            <Form.Group id="add-task-container" as={ Col }>
+                <Button
+                    variant="primary"
+                    type="submit"
+                    id="add-task"
+                >Add Task</Button>
             </Form.Group>
         </Form.Row>
     </Form>;

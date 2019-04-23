@@ -1,0 +1,7 @@
+#add-task-container {
+    display: flex;
+}
+
+#add-task {
+    align-self: flex-end;
+}
