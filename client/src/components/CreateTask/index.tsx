@@ -1,6 +1,7 @@
-import React, { FormEvent, useState } from 'react';
+import React, { FormEvent, useState, ChangeEvent } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
+import { ReplaceProps } from 'react-bootstrap/helpers';
 
 interface Props {
     submitTask: (body: string) => {};
@@ -16,11 +17,13 @@ export const CreateTask = ({ submitTask }: Props) => {
     };
 
     return <Form onSubmit={ submitted }>
-        <textarea
-            name="task-body"
-            value={taskBody}
-            onChange={ e => setBody(e.target.value) }
+        <Form.Control
+            as="textarea"
             placeholder="What do you want to do?"
+            value={taskBody}
+            onChange={ (event: ChangeEvent<HTMLTextAreaElement>) => {
+                setBody(event.target.value);
+            } }
             required
         />
         <Button variant="primary" type="submit">Add Task</Button>
