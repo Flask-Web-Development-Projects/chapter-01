@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Task } from '../types';
 
 interface TaskProps {
@@ -29,19 +30,19 @@ interface BodyProps {
 const TaskButtons = ({ task, deleteTask, completeTask, toBeEdited, isEditing, saveBody }: ButtonProps) => {
     return <div className="task-buttons">
         <button onClick={() => deleteTask(task._id)}>
-            Delete
+            <FontAwesomeIcon icon="times" />
         </button>
         <button onClick={() => completeTask(task)}>
             Complete
         </button>
         {
-            task._id === isEditing ? 
-            <button onClick={() => {
-                saveBody();
-            }}> Save </button> :
-            <button onClick={() => toBeEdited(task._id)}>
-                Edit
-            </button> 
+        task._id === isEditing ? 
+        <button onClick={() => {
+            saveBody();
+        }}> Save </button> :
+        <button onClick={() => toBeEdited(task._id)}>
+            Edit
+        </button> 
         }
     </div>;
 };
