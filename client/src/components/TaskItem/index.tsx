@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, ChangeEvent } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import Form from 'react-bootstrap/Form';
 import { Task } from '../types';
 
 interface TaskProps {
@@ -48,10 +49,13 @@ const TaskButtons = ({ task, deleteTask, completeTask, toBeEdited, isEditing, sa
 };
 
 const TaskBody = ({ taskId, isEditing, taskBody, updateBody }: BodyProps) => {
-    return taskId === isEditing ? 
-        <textarea
+    return taskId === isEditing ?
+        <Form.Control
+            as="textarea"
             value={taskBody}
-            onChange={event => updateBody(event.target.value)}
+            onChange={ (event: ChangeEvent<HTMLTextAreaElement> )=> {
+                updateBody(event.target.value);
+            } }
         /> :
         <div className="task-body">
             {taskBody}
