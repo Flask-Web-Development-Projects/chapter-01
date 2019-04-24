@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { TaskItem } from '../TaskItem';
 import {Task} from '../types';
 
+import './index.css';
+
 
 interface ListProps {
     tasks: Task[];
@@ -16,7 +18,7 @@ export const TaskList = ({ tasks, deleteTask, completeTask, updateTask }: ListPr
         setEditedTask(taskId);
     };
     let taskProps = { deleteTask, completeTask, toBeEdited, isEditing, updateTask };
-    return <div>
+    return <div id="task-container">
         {tasks
             .map(task => 
                 <TaskItem

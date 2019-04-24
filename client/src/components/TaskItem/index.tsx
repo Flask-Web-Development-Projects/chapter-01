@@ -52,11 +52,12 @@ const TaskButtons = ({ task, deleteTask, completeTask, toBeEdited, isEditing, sa
             {
             task._id === isEditing ? 
             <Button
-                variant="success"
+                variant="info"
                 onClick={() => {
                 saveBody();
             }}>
-                <FontAwesomeIcon icon="save" /> </Button> :
+                <FontAwesomeIcon icon="save" />
+            </Button> :
             <Button variant="warning" onClick={() => toBeEdited(task._id)}>
                 <FontAwesomeIcon icon="pencil-alt" />
             </Button> 
