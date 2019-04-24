@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
+import Card from 'react-bootstrap/Card';
 
 import { Task } from '../types';
 import './index.css';
@@ -91,24 +91,26 @@ export const TaskItem = ({ task, deleteTask, completeTask, toBeEdited, isEditing
         setBodyText(newText);
     }
 
-    return <div>
-        <TaskButtons
-            {...{
-                task,
-                deleteTask,
-                completeTask,
-                toBeEdited,
-                isEditing,
-                saveBody
-            }}
-        />
-        <TaskBody 
-            {...{
-                taskId: task._id,
-                isEditing,
-                taskBody: bodyText,
-                updateBody
-            }}
-        />
-    </div>;
+    return <Card>
+        <Card.Body>
+            <TaskButtons
+                {...{
+                    task,
+                    deleteTask,
+                    completeTask,
+                    toBeEdited,
+                    isEditing,
+                    saveBody
+                }}
+            />
+            <TaskBody 
+                {...{
+                    taskId: task._id,
+                    isEditing,
+                    taskBody: bodyText,
+                    updateBody
+                }}
+            />
+        </Card.Body>
+    </Card>;
 };
