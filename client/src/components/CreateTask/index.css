@@ -2,3 +2,7 @@
     display: flex;
     justify-content: flex-end;
 }
+
+#task-field-container {
+    margin-bottom: 5px;
+}

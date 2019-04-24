@@ -19,7 +19,7 @@ export const CreateTask = ({ submitTask }: Props) => {
 
     return <Form id="enter-task" onSubmit={ submitted }>
         <Form.Row>
-            <Form.Group as={ Col }>
+            <Form.Group as={ Col } id="task-field-container">
                 <Form.Control
                     as="textarea"
                     placeholder="What do you want to do?"
