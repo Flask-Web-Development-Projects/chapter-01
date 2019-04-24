@@ -134,3 +134,4 @@ If you want to see this project built step by step, follow the branches of the r
 - [checkpoint-10](https://github.com/Flask-Web-Development-Projects/chapter-01/tree/checkpoint-10) updates the Task component to allow for the completion of a task, using the "update" endpoint
 - [checkpoint-11](https://github.com/Flask-Web-Development-Projects/chapter-01/tree/checkpoint-11) updates the Task component to allow for editing of the body of a task
 - [checkpoint-12](https://github.com/Flask-Web-Development-Projects/chapter-01/tree/checkpoint-12) updates the front end with some rudimentary Bootstrap styling
+- [checkpoint-13](https://github.com/Flask-Web-Development-Projects/chapter-01/tree/checkpoint-13) adds a title line and handles the case of no task items
