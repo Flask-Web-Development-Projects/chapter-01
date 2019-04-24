@@ -7,6 +7,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
 import { Task } from '../types';
+import './index.css';
 
 interface TaskProps {
     task: Task;
@@ -35,7 +36,7 @@ interface BodyProps {
 
 const TaskButtons = ({ task, deleteTask, completeTask, toBeEdited, isEditing, saveBody }: ButtonProps) => {
     return <Row className="task-buttons">
-        <Col>
+        <div>
             <Button 
                 variant="danger"
                 onClick={() => deleteTask(task._id)}
@@ -60,7 +61,7 @@ const TaskButtons = ({ task, deleteTask, completeTask, toBeEdited, isEditing, sa
                 <FontAwesomeIcon icon="pencil-alt" />
             </Button> 
             }
-        </Col>
+        </div>
     </Row>;
 };
 

@@ -1,4 +1,7 @@
 #app-container {
   max-width: 50%;
   margin: auto;
+  height: 100vh;
+  background: lavender;
+  padding-top: 20px;
 }
