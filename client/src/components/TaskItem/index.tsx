@@ -35,23 +35,32 @@ interface BodyProps {
 
 const TaskButtons = ({ task, deleteTask, completeTask, toBeEdited, isEditing, saveBody }: ButtonProps) => {
     return <Row className="task-buttons">
-        <div>
-            <Button variant="danger" onClick={() => deleteTask(task._id)}>
+        <Col>
+            <Button 
+                variant="danger"
+                onClick={() => deleteTask(task._id)}
+            >
                 <FontAwesomeIcon icon="times" />
             </Button>
-            <Button variant="success" onClick={() => completeTask(task)}>
+            <Button
+                variant="success"
+                onClick={() => completeTask(task)}
+            >
                 <FontAwesomeIcon icon="check" />
             </Button>
             {
             task._id === isEditing ? 
-            <Button variant="success" onClick={() => {
+            <Button
+                variant="success"
+                onClick={() => {
                 saveBody();
-            }}> <FontAwesomeIcon icon="save" /> </Button> :
+            }}>
+                <FontAwesomeIcon icon="save" /> </Button> :
             <Button variant="warning" onClick={() => toBeEdited(task._id)}>
                 <FontAwesomeIcon icon="pencil-alt" />
             </Button> 
             }
-        </div>
+        </Col>
     </Row>;
 };
 
