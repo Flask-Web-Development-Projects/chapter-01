@@ -30,6 +30,8 @@ export const CreateTask = ({ submitTask }: Props) => {
                     required
                 />
             </Form.Group>
+        </Form.Row>
+        <Form.Row>
             <Form.Group id="add-task-container" as={ Col }>
                 <Button
                     variant="primary"
