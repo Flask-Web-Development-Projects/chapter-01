@@ -4,6 +4,7 @@ import { TaskItem } from '../TaskItem';
 import {Task} from '../types';
 
 import './index.css';
+import Card from 'react-bootstrap/Card';
 
 
 interface ListProps {
@@ -20,13 +21,17 @@ export const TaskList = ({ tasks, deleteTask, completeTask, updateTask }: ListPr
     };
     let taskProps = { deleteTask, completeTask, toBeEdited, isEditing, updateTask };
     return <div id="task-container">
-        {tasks
-            .map(task => 
-                <TaskItem
-                    key={task._id}
-                    {...{task, ...taskProps}}
-                />
-            )
+        {tasks.length ?
+            tasks
+                .map(task => 
+                    <TaskItem
+                        key={task._id}
+                        {...{task, ...taskProps}}
+                    />
+                ) :
+            <Card>
+                <Card.Body>There aren't any tasks yet. Use the field above to add one!</Card.Body>
+            </Card>
         }
     </div>;
 };
