@@ -74,7 +74,7 @@ const App = () => {
 
   return <Container>
     <Row>
-      <Col>
+      <Col id="app-container">
         <CreateTask submitTask={submitTask} />
         <TaskList {...{ tasks, deleteTask, completeTask, updateTask }} />
       </Col>

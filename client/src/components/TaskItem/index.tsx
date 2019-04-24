@@ -1,6 +1,11 @@
 import React, { useState, ChangeEvent } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
 import Form from 'react-bootstrap/Form';
+import Button from 'react-bootstrap/Button';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+
 import { Task } from '../types';
 
 interface TaskProps {
@@ -29,23 +34,25 @@ interface BodyProps {
 }
 
 const TaskButtons = ({ task, deleteTask, completeTask, toBeEdited, isEditing, saveBody }: ButtonProps) => {
-    return <div className="task-buttons">
-        <button onClick={() => deleteTask(task._id)}>
-            <FontAwesomeIcon icon="times" />
-        </button>
-        <button onClick={() => completeTask(task)}>
-            <FontAwesomeIcon icon="check" />
-        </button>
-        {
-        task._id === isEditing ? 
-        <button onClick={() => {
-            saveBody();
-        }}> <FontAwesomeIcon icon="save" /> </button> :
-        <button onClick={() => toBeEdited(task._id)}>
-            <FontAwesomeIcon icon="pencil-alt" />
-        </button> 
-        }
-    </div>;
+    return <Row className="task-buttons">
+        <div>
+            <Button variant="danger" onClick={() => deleteTask(task._id)}>
+                <FontAwesomeIcon icon="times" />
+            </Button>
+            <Button variant="success" onClick={() => completeTask(task)}>
+                <FontAwesomeIcon icon="check" />
+            </Button>
+            {
+            task._id === isEditing ? 
+            <Button variant="success" onClick={() => {
+                saveBody();
+            }}> <FontAwesomeIcon icon="save" /> </Button> :
+            <Button variant="warning" onClick={() => toBeEdited(task._id)}>
+                <FontAwesomeIcon icon="pencil-alt" />
+            </Button> 
+            }
+        </div>
+    </Row>;
 };
 
 const TaskBody = ({ taskId, isEditing, taskBody, updateBody }: BodyProps) => {
